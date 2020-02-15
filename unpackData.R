@@ -65,3 +65,10 @@ raw_results <- list.files("raw", full.names=TRUE) %>%
 	lapply(findIndex) %>%
 	lapply(parseResults) %>%
 	bind_rows()
+
+write.csv(raw, "clean/all_results.csv", row.names=FALSE)
+
+## Create a data entry file for machine counting 
+data.frame(township=unique(raw_results$township), machine = "") %>%
+	arrange(township) %>%
+	write.csv("clean/all_townships.csv", row.names=FALSE)
