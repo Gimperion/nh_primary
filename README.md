@@ -5,7 +5,14 @@ Data from [New Hampshire Secretary of State](https://sos.nh.gov/20PresPrimaryDem
 So far just some basic data transformation to get from XLS to tidy format.
 
 ## Machine Counted Districts
+
 ![](images/machine_counted_precincts.png "MC Townships")
+
+## Summary
+
+From the map, machine counting, by in large, occurred in suburban areas that Sanders performed worse in.  More urban areas such as Manchester, Nashua, Concord, etc. where Bernie was expected to perform well all counted their votes by hand.  
+
+In addition, Bernie performed quite well in machine counted townships like Durham where the University of New Hampshire was located.
 
 
 ## Overview Results
