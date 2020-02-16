@@ -1,6 +1,8 @@
 library(dplyr)
 library(rgdal)
-library(tomkit)
+library(leaflet)
+
+# library(tomkit)
 
 
 ## manual map
@@ -12,7 +14,6 @@ name_fix <- c("FITZILLIAM"="FITZWILLIAM",
 	"BERLIN"="BERLIN WARDS 1-3",
 	"DERRY"="DERRY WARDS 1-4"
 )
-
 
 ## messy regex
 precincts <- readOGR(dsn= "gis", verbose=FALSE)
@@ -37,5 +38,16 @@ ts <- data.frame(township=precincts$NAME) %>%
 		color = ifelse(is.na(color), "#333333", color)
 	)
 
+color_map <- ts$color %>% setNames(ts$township)
+
 par(mar=c(0,0,2,0))
 plot(precincts, col=ts$color, lwd=0.25, border=1, main="Machine Counted Districts (Pres Primary 2020)")
+
+leaflet(precincts) %>%
+	addTiles() %>%
+	addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
+	opacity = 1.0, fillOpacity = 0.5,
+	fillColor = precincts$COLOR,
+	label = precincts$NAME,
+	highlightOptions = highlightOptions(color = "white", weight = 2,
+		bringToFront = TRUE))
