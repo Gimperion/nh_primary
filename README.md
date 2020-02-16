@@ -4,6 +4,10 @@ Data from [New Hampshire Secretary of State](https://sos.nh.gov/20PresPrimaryDem
 
 So far just some basic data transformation to get from XLS to tidy format.
 
+## Machine Counted Districts
+![](images/machine_counted_precincts.png "MC Townships")
+
+
 ## Overview Results
 
 So far, the top analysis shows that Buttigeig did well in townships that used machine counting.  
