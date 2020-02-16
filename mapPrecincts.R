@@ -39,9 +39,10 @@ ts <- data.frame(township=precincts$NAME) %>%
 	)
 
 color_map <- ts$color %>% setNames(ts$township)
+precincts$COLOR <- color_map[as.character(precincts$NAME)]
 
 par(mar=c(0,0,2,0))
-plot(precincts, col=ts$color, lwd=0.25, border=1, main="Machine Counted Districts (Pres Primary 2020)")
+plot(precincts, col=precincts$COLOR, lwd=0.25, border=1, main="Machine Counted Districts (Pres Primary 2020)")
 
 leaflet(precincts) %>%
 	addTiles() %>%
